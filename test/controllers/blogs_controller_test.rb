@@ -1,18 +1,18 @@
 require "test_helper"
 
-class MenusControllerTest < ActionDispatch::IntegrationTest
+class BlogsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get menus_index_url
+    get blogs_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get menus_show_url
+    get blogs_show_url
     assert_response :success
   end
 
   test "should get edit" do
-    get menus_edit_url
+    get blogs_edit_url
     assert_response :success
   end
 end
