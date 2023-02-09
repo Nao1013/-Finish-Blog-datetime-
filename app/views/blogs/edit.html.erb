@@ -1,2 +1,12 @@
-<h1>Blogs#edit</h1>
-<p>Find me in app/views/blogs/edit.html.erb</p>
+<h1>編集ページ</h1>
+<%= form_with model: @blog, url: blog_path(@blog.id), method: :patch do |f| %>
+
+ <h4>Title</h4>
+  <%= f.text_field :title %>
+  
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  
+  <%= f.submit "再投稿する" %>
+
+<% end %>
