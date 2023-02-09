@@ -2,8 +2,12 @@ class BlogsController < ApplicationController
  
    def create
     blog = Blog.new(blog_params)
-    blog.save
-    redirect_to blog_path(blog.id)
+    if blog.save
+        flash[:notice] = "投稿しました"
+      redirect_to blog_path(blog.id)
+    else
+      render :index
+    end
    end
   
   def index
@@ -21,8 +25,12 @@ class BlogsController < ApplicationController
   
   def update
     blog = Blog.find(params[:id])
-    blog.update(blog_params)
+    if blog.update(blog_params)
+        flash[:notice] = "再投稿しました"
     redirect_to blog_path(blog.id) #Showページへアクセス
+    else
+    render :edit
+    end
   end
   
   def destroy
